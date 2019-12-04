@@ -120,3 +120,81 @@ ggplot(data=filter(R1_feat, id > 10)) +
   geom_point(mapping = aes(x = album, y = valence, color = id)) +
   scale_color_gradient(low="blue", high="red")
 
+
+fullfeat <- read_csv("C:\\Users\\tbfea\\OneDrive\\Documents\\GitHub\\6500project\\FullFeat.csv")
+
+ggplot(data = fullfeat) +
+  geom_point(mapping = aes(x = album, y = acousticness)) +
+  scale_color_gradient(low="blue", high="red") +
+  geom_hline(yintercept=mean(R1_feat$acousticness), color="green")
+
+R1_feat_allsongs <- read_csv("C:\\Users\\tbfea\\OneDrive\\Documents\\GitHub\\6500project\\Rank1FeatAllSongs.csv")
+
+ggplot(data = R1_feat_allsongs) +
+  geom_point(mapping = aes(x = album, y = acousticness), color = "blue") +
+  geom_hline(yintercept=mean(R1_feat_allsongs$acousticness), color="green")
+
+R1freq_feat_allsongs <- read_csv("C:\\Users\\tbfea\\OneDrive\\Documents\\GitHub\\6500project\\R1Freq_Feat_AllSongs.csv")
+
+ggplot(data = R1freq_feat_allsongs) +
+  geom_point(mapping = aes(x = album, y = acousticness, color = id)) +
+  scale_color_gradient(low="blue", high="red") +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$acousticness), color="green")
+
+ggplot(data = R1freq_feat_allsongs) +
+  geom_point(mapping = aes(x = album, y = danceability, color = id)) +
+  scale_color_gradient(low="blue", high="red") +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$danceability), color="green")
+
+ggplot(data = R1freq_feat_allsongs) +
+  geom_point(mapping = aes(x = album, y = energy, color = id)) +
+  scale_color_gradient(low="blue", high="red") +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$energy), color="green")
+
+
+ggplot(data = R1freq_feat_allsongs) +
+  geom_point(mapping = aes(x = album, y = instrumentalness, color = id)) +
+  scale_color_gradient(low="blue", high="red") +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$instrumentalness), color="green")
+
+
+ggplot(data = R1freq_feat_allsongs) +
+  geom_point(mapping = aes(x = album, y = key, color = id)) +
+  scale_color_gradient(low="blue", high="red") +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$key), color="green")
+
+
+ggplot(data = R1freq_feat_allsongs) +
+  geom_point(mapping = aes(x = album, y = liveness, color = id)) +
+  scale_color_gradient(low="blue", high="red") +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$liveness), color="green")
+
+
+ggplot(data = R1freq_feat_allsongs) +
+  geom_point(mapping = aes(x = album, y = loudness, color = id)) +
+  scale_color_gradient(low="blue", high="red") +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$loudness), color="green")
+
+
+ggplot(data = R1freq_feat_allsongs) +
+  geom_point(mapping = aes(x = album, y = mode, color = id)) +
+  scale_color_gradient(low="blue", high="red") +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$mode), color="green")
+
+
+ggplot(data = R1freq_feat_allsongs) +
+  geom_point(mapping = aes(x = album, y = speechiness, color = id)) +
+  scale_color_gradient(low="blue", high="red") +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$speechiness), color="green")
+
+
+ggplot(data = R1freq_feat_allsongs) +
+  geom_point(mapping = aes(x = album, y = tempo, color = id)) +
+  scale_color_gradient(low="blue", high="red") +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$tempo), color="green")
+
+
+ggplot(data = R1freq_feat_allsongs) +
+  geom_point(mapping = aes(x = album, y = valence, color = id)) +
+  scale_color_gradient(low="blue", high="red") +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$valence), color="green")
