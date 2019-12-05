@@ -136,7 +136,7 @@ ggplot(data = R1_feat_allsongs) +
 
 R1freq_feat_allsongs <- read_csv("C:\\Users\\tbfea\\OneDrive\\Documents\\GitHub\\6500project\\R1Freq_Feat_AllSongs.csv")
 
-ggplot(data = R1freq_feat_allsongs) +
+ggplot(data=filter(R1freq_feat_allsongs, id > 10)) +
   geom_point(mapping = aes(x = album, y = acousticness, color = id)) +
   scale_color_gradient(low="blue", high="red") +
   geom_hline(yintercept=mean(R1freq_feat_allsongs$acousticness), color="green")
@@ -206,18 +206,173 @@ TSwift <- TSwift %>%
     albumchar = as.character(album),
   )
 
-ggplot(data= filter(fullfeat, artist == "Taylor Swift")) +
-  geom_smooth(mapping = aes(x = song, y = acousticness), color = "red") +
-  facet_wrap(~album) +
-  coord_flip()
 
-ggplot(data= filter(fullfeat, artist == "Taylor Swift")) +
-  geom_point(mapping = aes(x = album, y = song, color = danceability)) +
-  scale_color_gradient(low="blue", high="red") 
 
 ggplot(TSwift, aes(album, energy)) + 
   geom_point()
 
+Count_feat <- read_csv("C:\\Users\\tbfea\\OneDrive\\Documents\\GitHub\\6500project\\top200countfeat.csv")
+
+(data=filter(R1_feat, id > 10))
+
+ggplot(data = filter(Count_feat, albumcount > 78, albumcount < 209)) +
+  geom_point(mapping = aes(x = album, y = danceability, color = albumcount)) +
+  scale_color_gradient2(low="blue", mid = "pink", high="red", midpoint = 143 ) +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$danceability), color="green", size = 2)
+
+ggplot(data = filter(Count_feat, albumcount > 78, albumcount < 209)) +
+  geom_point(mapping = aes(x = album, y = energy, color = albumcount)) +
+  scale_color_gradient2(low="blue", mid = "pink", high="red", midpoint = 143 ) +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$energy), color="green", size = 2)
+
+ggplot(data = filter(Count_feat, albumcount > 78, albumcount < 209)) +
+  geom_point(mapping = aes(x = album, y = liveness, color = albumcount)) +
+  scale_color_gradient2(low="blue", mid = "pink", high="red", midpoint = 143 ) +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$liveness), color="green", size = 2)
+
+ggplot(data = filter(Count_feat, albumcount > 78, albumcount < 209)) +
+  geom_point(mapping = aes(x = album, y = instrumentalness, color = albumcount)) +
+  scale_color_gradient2(low="blue", mid = "pink", high="red", midpoint = 143 ) +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$instrumentalness), color="green", size = 2)
+
+ggplot(data = filter(Count_feat, albumcount > 78, albumcount < 209)) +
+  geom_point(mapping = aes(x = album, y = speechiness, color = albumcount)) +
+  scale_color_gradient2(low="blue", mid = "pink", high="red", midpoint = 143 ) +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$speechiness), color="green", size = 2)
+
+ggplot(data = filter(Count_feat, albumcount > 78, albumcount < 209)) +
+  geom_point(mapping = aes(x = album, y = tempo, color = albumcount)) +
+  scale_color_gradient2(low="blue", mid = "pink", high="red", midpoint = 143 ) +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$tempo), color="green", size = 2)
+
+ggplot(data = filter(Count_feat, albumcount > 78, albumcount < 209)) +
+  geom_point(mapping = aes(x = album, y = valence, color = albumcount)) +
+  scale_color_gradient2(low="blue", mid = "pink", high="red", midpoint = 143 ) +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$valence), color="green", size = 2)
+
+ggplot(data = filter(Count_feat, albumcount > 78, albumcount < 209)) +
+  geom_point(mapping = aes(x = album, y = loudness, color = albumcount)) +
+  scale_color_gradient2(low="blue", mid = "pink", high="red", midpoint = 143 ) +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$loudness), color="green", size = 2)
 
 
+artist60s <- read_csv("C:\\Users\\tbfea\\OneDrive\\Documents\\GitHub\\6500project\\artist60s.csv")
 
+ggplot(data = artist60s) +
+  geom_point(mapping = aes(x = artist, y = liveness), color = "red")
+  
+ggplot(data = artist60s) +
+  geom_point(mapping = aes(x = artist, y = tempo), color = "magenta")
+  
+ggplot(data = artist60s) +
+  geom_point(mapping = aes(x = artist, y = loudness), color = "green")
+  
+ggplot(data = artist60s) +
+  geom_point(mapping = aes(x = artist, y = instrumentalness), color = "brown")
+
+ggplot(data = artist60s) +
+  geom_point(mapping = aes(x = artist, y = speechiness), color = "blue")
+
+ggplot(data = artist60s) +
+  geom_point(mapping = aes(x = artist, y = danceability), color = "gold")
+
+artist70s <- read_csv("C:\\Users\\tbfea\\OneDrive\\Documents\\GitHub\\6500project\\artist70s.csv")
+
+ggplot(data = artist70s) +
+  geom_point(mapping = aes(x = artist, y = liveness), color = "red")
+
+ggplot(data = artist70s) +
+  geom_point(mapping = aes(x = artist, y = tempo), color = "magenta")
+
+ggplot(data = artist70s) +
+  geom_point(mapping = aes(x = artist, y = loudness), color = "green")
+
+ggplot(data = artist70s) +
+  geom_point(mapping = aes(x = artist, y = instrumentalness), color = "brown")
+
+ggplot(data = artist70s) +
+  geom_point(mapping = aes(x = artist, y = speechiness), color = "blue")
+
+ggplot(data = artist70s) +
+  geom_point(mapping = aes(x = artist, y = danceability), color = "gold")
+
+artist80s <- read_csv("C:\\Users\\tbfea\\OneDrive\\Documents\\GitHub\\6500project\\artist80s.csv")
+
+ggplot(data = artist80s) +
+  geom_point(mapping = aes(x = artist, y = liveness), color = "red")
+
+ggplot(data = artist80s) +
+  geom_point(mapping = aes(x = artist, y = tempo), color = "magenta")
+
+ggplot(data = artist80s) +
+  geom_point(mapping = aes(x = artist, y = loudness), color = "green")
+
+ggplot(data = artist80s) +
+  geom_point(mapping = aes(x = artist, y = instrumentalness), color = "brown")
+
+ggplot(data = artist80s) +
+  geom_point(mapping = aes(x = artist, y = speechiness), color = "blue")
+
+ggplot(data = artist80s) +
+  geom_point(mapping = aes(x = artist, y = danceability), color = "gold")
+
+artist90s <- read_csv("C:\\Users\\tbfea\\OneDrive\\Documents\\GitHub\\6500project\\artist90s.csv")
+
+ggplot(data = artist90s) +
+  geom_point(mapping = aes(x = artist, y = liveness), color = "red")
+
+ggplot(data = artist90s) +
+  geom_point(mapping = aes(x = artist, y = tempo), color = "magenta")
+
+ggplot(data = artist90s) +
+  geom_point(mapping = aes(x = artist, y = loudness), color = "green")
+
+ggplot(data = artist90s) +
+  geom_point(mapping = aes(x = artist, y = instrumentalness), color = "brown")
+
+ggplot(data = artist90s) +
+  geom_point(mapping = aes(x = artist, y = speechiness), color = "blue")
+
+ggplot(data = artist90s) +
+  geom_point(mapping = aes(x = artist, y = danceability), color = "gold")
+
+
+artist2000s <- read_csv("C:\\Users\\tbfea\\OneDrive\\Documents\\GitHub\\6500project\\artist2000s.csv")
+
+ggplot(data = artist2000s) +
+  geom_point(mapping = aes(x = artist, y = liveness), color = "red")
+
+ggplot(data = artist2000s) +
+  geom_point(mapping = aes(x = artist, y = tempo), color = "magenta")
+
+ggplot(data = artist2000s) +
+  geom_point(mapping = aes(x = artist, y = loudness), color = "green")
+
+ggplot(data = artist2000s) +
+  geom_point(mapping = aes(x = artist, y = instrumentalness), color = "brown")
+
+ggplot(data = artist2000s) +
+  geom_point(mapping = aes(x = artist, y = speechiness), color = "blue")
+
+ggplot(data = artist2000s) +
+  geom_point(mapping = aes(x = artist, y = danceability), color = "gold")
+
+artist10s <- read_csv("C:\\Users\\tbfea\\OneDrive\\Documents\\GitHub\\6500project\\artist10s.csv")
+
+ggplot(data = artist10s) +
+  geom_point(mapping = aes(x = artist, y = liveness), color = "red")
+
+ggplot(data = artist10s) +
+  geom_point(mapping = aes(x = artist, y = tempo), color = "magenta")
+
+ggplot(data = artist10s) +
+  geom_point(mapping = aes(x = artist, y = loudness), color = "green")
+
+ggplot(data = artist10s) +
+  geom_point(mapping = aes(x = artist, y = instrumentalness), color = "brown")
+
+ggplot(data = artist10s) +
+  geom_point(mapping = aes(x = artist, y = speechiness), color = "blue")
+
+ggplot(data = artist10s) +
+  geom_point(mapping = aes(x = artist, y = danceability), color = "gold")
