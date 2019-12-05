@@ -198,3 +198,26 @@ ggplot(data = R1freq_feat_allsongs) +
   geom_point(mapping = aes(x = album, y = valence, color = id)) +
   scale_color_gradient(low="blue", high="red") +
   geom_hline(yintercept=mean(R1freq_feat_allsongs$valence), color="green")
+
+TSwift = filter(fullfeat, artist == "Taylor Swift")
+
+TSwift <- TSwift %>%
+  mutate(
+    albumchar = as.character(album),
+  )
+
+ggplot(data= filter(fullfeat, artist == "Taylor Swift")) +
+  geom_smooth(mapping = aes(x = song, y = acousticness), color = "red") +
+  facet_wrap(~album) +
+  coord_flip()
+
+ggplot(data= filter(fullfeat, artist == "Taylor Swift")) +
+  geom_point(mapping = aes(x = album, y = song, color = danceability)) +
+  scale_color_gradient(low="blue", high="red") 
+
+ggplot(TSwift, aes(album, energy)) + 
+  geom_point()
+
+
+
+
