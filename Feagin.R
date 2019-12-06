@@ -251,6 +251,11 @@ ggplot(data = filter(Count_feat, albumcount > 78, albumcount < 209)) +
   geom_hline(yintercept=mean(R1freq_feat_allsongs$valence), color="green", size = 2)
 
 ggplot(data = filter(Count_feat, albumcount > 78, albumcount < 209)) +
+  geom_point(mapping = aes(x = album, y = acousticness, color = albumcount)) +
+  scale_color_gradient2(low="blue", mid = "pink", high="red", midpoint = 143 ) +
+  geom_hline(yintercept=mean(R1freq_feat_allsongs$acousticness), color="green", size = 2)
+
+ggplot(data = filter(Count_feat, albumcount > 78, albumcount < 209)) +
   geom_point(mapping = aes(x = album, y = loudness, color = albumcount)) +
   scale_color_gradient2(low="blue", mid = "pink", high="red", midpoint = 143 ) +
   geom_hline(yintercept=mean(R1freq_feat_allsongs$loudness), color="green", size = 2)
@@ -376,3 +381,22 @@ ggplot(data = artist10s) +
 
 ggplot(data = artist10s) +
   geom_point(mapping = aes(x = artist, y = danceability), color = "gold")
+
+# Compute a histogram of `chol$AGE`
+ggplot(data=Count_feat, aes(Count_feat$albumcount)) + 
+  geom_histogram(binwidth = 1) +
+  xlim(c(0,250)) 
+
+# Compute a histogram of `chol$AGE`
+
+ggplot(data=Count_feat) + 
+  geom_bar(aes(x = key, fill = mode)) +
+  scale_fill_gradient2(low="blue", mid = "pink", high="red", midpoint = 143 )
+
+Count_feat <- Count_feat %>%
+  mutate(
+    mode = as.character(mode),
+  )
+
+g <- ggplot(Count_feat, aes(key))
+g + geom_bar(aes(fill = mode))
